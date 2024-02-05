@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Projects</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>My Projects</h1>
+
+            {% for item in model_list %}
+
+            {% empty %}
+
+            <p>You are not assigned to any projects</p>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of tasks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ item.name }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            {% endfor %}
+        </div>
+    </main>
+</body>
+
+</html>
