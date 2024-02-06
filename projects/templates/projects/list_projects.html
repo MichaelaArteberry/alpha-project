@@ -2,11 +2,13 @@
 {% load static %}
 
 
-{% block title %}Liszt{% endblock title %}
+{% block title %}List{% endblock title %}
 {% block content %}
 <main>
     <div>
         <h1>My Projects</h1>
+
+        <p><a href="{% url 'create_project' %}">Create a new project</a></p>
 
         {% if project_list %}
 
