@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Liszt{% endblock title %}
+{% block title %}{% endblock title %}
 {% block content %}
 <main>
     <div>
@@ -28,7 +28,9 @@
             </thead>
 
             <tbody>
+
                 {% for project in project_object.tasks.all %}
+
                 <tr>
                     <td>{{ project.name }}</td>
                     <td>{{ project.assignee }}</td>
