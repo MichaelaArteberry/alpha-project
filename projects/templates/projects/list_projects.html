@@ -7,7 +7,9 @@
 <main>
     <div>
         <h1>My Projects</h1>
+
         {% if project_list %}
+
         <table>
             <thead>
                 <tr>
@@ -16,16 +18,24 @@
                 </tr>
             </thead>
             <tbody>
+
                 {% for project in project_list %}
+
                 <tr>
-                    <td>{{ project.name }}</td>
-                    <td>0</td>
+                    <td><a href="{% url 'show_project' project.id %}"></a>{{ project.name }}</td>
+                    <td>{{ project.tasks.all|length }}</td>
                 </tr>
+
                 {% endfor %}
+
             </tbody>
         </table>
+
+
         {% else %}
+
         <p>You are not assigned to any projects</p>
+
         {% endif %}
     </div>
 </main>
