@@ -1,55 +1,64 @@
 {% extends 'base.html' %}
 
+<!DOCTYPE html>
+<html>
 
-{% block title %}{% endblock title %}
-{% block content %}
-<main>
-    <div>
+<head>
+    {% block title %}{% endblock title %}
+</head>
 
-        <h1>{{ project_object.name }}</h1>
+<body>
+    {% block content %}
+    <main>
+        <div>
 
-        <p>{{ project_object.description }}</p>
+            <h1>{{ project_object.name }}</h1>
 
-        <h2>Tasks</h2>
+            <p>{{ project_object.description }}</p>
 
-        <p><a href="{% url 'create_task' %}">Home</a></p>
+            <h2>Tasks</h2>
 
-        {% if project_object.tasks.all %}
+            <p><a href="{% url 'create_task' %}">Home</a></p>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Assignee</th>
-                    <th>Start date</th>
-                    <th>Due date</th>
-                    <th>Is completed</th>
-                </tr>
-            </thead>
+            {% if project_object.tasks.all %}
 
-            <tbody>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Assignee</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </tr>
+                </thead>
 
-                {% for project in project_object.tasks.all %}
+                <tbody>
 
-                <tr>
-                    <td>{{ project.name }}</td>
-                    <td>{{ project.assignee }}</td>
-                    <td>{{ project.start_date }}</td>
-                    <td>{{ project.due_date }}</td>
-                    <td>{{ project.is_completed|yesno }}</td>
-                </tr>
+                    {% for project in project_object.tasks.all %}
 
-                {% endfor %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.assignee }}</td>
+                        <td>{{ project.start_date }}</td>
+                        <td>{{ project.due_date }}</td>
+                        <td>{{ project.is_completed|yesno }}</td>
+                    </tr>
 
-            </tbody>
-        </table>
+                    {% endfor %}
 
-        {% else %}
+                </tbody>
+            </table>
 
-        <p>This project has no tasks</p>
+            {% else %}
 
-        {% endif %}
+            <p>This project has no tasks</p>
 
-    </div>
-</main>
-{% endblock content %}
+            {% endif %}
+
+        </div>
+    </main>
+    {% endblock content %}
+</body>
+
+</html>

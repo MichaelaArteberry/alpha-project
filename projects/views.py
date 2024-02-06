@@ -5,16 +5,12 @@ from projects.forms import ProjectForm
 
 # Create your views here.
 
+
 @login_required
 def show_project_model(request):
-  project_list = Project.objects.filter(owner=request.user)
-  context = {
-    "project_list": project_list
-  }
-  return render(request, "projects/list_projects.html", context)
-
-
-
+    project_list = Project.objects.filter(owner=request.user)
+    context = {"project_list": project_list}
+    return render(request, "projects/list_projects.html", context)
 
 
 @login_required
@@ -24,8 +20,6 @@ def show_projects(request, id):
         "project_object": project,
     }
     return render(request, "projects/projectdetail.html", context)
-
-
 
 
 @login_required
@@ -41,7 +35,7 @@ def create_project(request):
         form = ProjectForm()
 
     context = {
-        "form":form,
+        "form": form,
     }
 
     return render(request, "projects/create.html", context)

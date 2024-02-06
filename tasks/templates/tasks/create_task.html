@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %}
+<!DOCTYPE html>
+<html>
 
-{% endblock title %}
+<head>
+    {% block title %}{% endblock title %}
+</head>
 
-{% block content %}
-<main>
-    <div>
+<body>
+    {% block content %}
 
-        <h1>Create a new task</h1>
+    <main>
+        <div>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button>Create</button>
-        </form>
+            <h1>Create a new task</h1>
 
-    </div>
-</main>
-{% endblock content %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Create</button>
+            </form>
+
+        </div>
+    </main>
+
+
+    {% endblock content %}
+</body>
+
+</html>

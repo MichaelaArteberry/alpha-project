@@ -1,46 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Chopin{% endblock title %}
-{% block content %}
-<main>
-    <div>
-        <h1>My Tasks</h1>
+<head>
+    {% block title %}{% endblock title %}
+</head>
 
-        {% if tasks_list %}
+<body>
+    {% block content %}
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Start date</th>
-                    <th>Due date</th>
-                    <th>Is completed</th>
-                </tr>
-            </thead>
-            <tbody>
+    <main>
+        <div>
+            <h1>My Tasks</h1>
 
-                {% for task in tasks_list %}
+            {% if tasks_list %}
 
-                <tr>
-                    <td>>{{ task.name}}</a></td>
-                    <td>{{ task.start_date }}</td>
-                    <td>{{ task.due_date }}</td>
-                    <td>{{ task.is_completed|yesno }}</td>
-                </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                {% endfor %}
+                    {% for task in tasks_list %}
 
-            </tbody>
-        </table>
+                    <tr>
+                        <td>>{{ task.name}}</a></td>
+                        <td>{{ task.start_date }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>{{ task.is_completed|yesno }}</td>
+                    </tr>
 
-        {% else %}
+                    {% endfor %}
 
-        <p>You have no tasks</p>
+                </tbody>
+            </table>
 
-        {% endif %}
+            {% else %}
 
-    </div>
-</main>
-{% endblock content %}
+            <p>You have no tasks</p>
+
+            {% endif %}
+
+        </div>
+    </main>
+    {% endblock content %}
+</body>
+
+</html>
